@@ -30,50 +30,37 @@ A função type retorna uma cadeia de caracteres descrevendo o tipo de um dado v
 
 
 ## Escopo
-Lua é uma linguagem com escopo léxico. O escopo das variáveis começa no primeiro comando depois da sua declaração e vai até o fim do bloco mais interno que inclui a declaração. Considere o seguinte exemplo:
-
+Lua é uma linguagem com escopo léxico. O escopo das variáveis começa no primeiro comando depois da sua declaração e vai até o fim do bloco mais interno que inclui a declaração.
 Note que, em uma declaração como local x = x, o novo x sendo declarado não está no escopo ainda e portanto o segundo x se refere a uma variável externa.
-
 Por causa das regras de escopo léxico, variáveis locais podem ser livremente acessadas por funções definidas dentro do seu escopo. Uma variável local usada por uma função mais interna é chamada de upvalue ou variável local externa, dentro da função mais interna.
-
-Note que cada execução de um comando local define novas variáveis locais. Considere o exemplo a seguir:
-
-O laço cria dez fechos (isto é, dez instâncias da função anônima). Cada um destes fechos usa uma variável y diferente, enquanto todos eles compartilham a mesma variável x.
+Note que cada execução de um comando local define novas variáveis locais.
+Laços criam dez fechos (isto é, dez instâncias da função anônima). Cada um destes fechos usa uma variável y diferente, enquanto todos eles compartilham a mesma variável x.
 
 
 ## Tratamentos Semânticos
 Uma característica essencial de Lua é a semântica Extensível, e o conceito de “metatables” permite que as tabelas Lua sejam personalizadas em poderosas e exclusivas formas. O exemplo a seguir mostra uma tabela “infinita”. Para qualquer valor “n”, “fibs [n]” dará o enésimo número Fibonacci usando programação dinâmica.
-
-Uma linguagem de computador que permite ao usuário ampliar ou modificar sua sintaxe e semântica. No sentido mais estrito, o termo diz respeito a apenas algumas das linguagens realmente utilizadas, como a Forth, que permitem ao programador modificar a própria linguagem. Ver também computer language (linguagem de computador); semantics (semântica – definição 1); syntax (sintaxe).
+Lua é ma linguagem de computador que permite ao usuário ampliar ou modificar sua sintaxe e semântica. No sentido mais estrito, o termo diz respeito a apenas algumas das linguagens realmente utilizadas, como a Forth, que permitem ao programador modificar a própria linguagem.
 
 
 ## Outras Características e Curiosidades
 
 ### Implementação
 Os programas Lua não são interpretados diretamente do arquivo textual Lua, mas são compilados em bytecode, que é então executado na máquina virtual Lua. O processo de compilação normalmente é invisível para o usuário e é executado durante o tempo de execução, especialmente quando um compilador JIT é usado, mas pode ser feito offline para aumentar o desempenho de carregamento ou reduzir o consumo de memória do ambiente host, deixando de fora o compilador. O bytecode Lua também pode ser produzido e executado a partir de Lua, usando a função dump da biblioteca de strings e as funções load/loadstring/loadfile. Lua versão 5.3.4 é implementada em aproximadamente 24.000 linhas de código C.
+Como a maioria das CPUs, e ao contrário da maioria das máquinas virtuais (que são baseadas em pilha), a Lua VM é baseada em registradores e, portanto, se assemelha mais a um projeto de hardware real. A arquitetura de registradores evita a cópia excessiva de valores e reduz o número total de instruções por função. A máquina virtual de Lua 5 é uma das primeiras VMs puras baseadas em registro a ter um amplo uso.
 
-Como a maioria das CPUs, e ao contrário da maioria das máquinas virtuais (que são baseadas em pilha), a Lua VM é baseada em registradores e, portanto, se assemelha mais a um projeto de hardware real. A arquitetura de registradores evita a cópia excessiva de valores e reduz o número total de instruções por função. A máquina virtual de Lua 5 é uma das primeiras VMs puras baseadas em registro a ter um amplo uso. Parrot e Dalvik do Android são duas outras VMs baseadas em registro bem conhecidas. A VM do PCScheme também foi baseada em registro.
-
-Este exemplo é a lista de bytecode da função fatorial definida acima (como mostrado pelo compilador luac 5.1):
+### C API
+Lua destina-se a ser incorporada em outros aplicativos e fornece uma API C para essa finalidade. A API é dividida em duas partes: o núcleo Lua e a biblioteca auxiliar Lua. O design da API Lua elimina a necessidade de gerenciamento manual de referências em código C, diferentemente da API do Python. A API, como a linguagem, é minimalista. A funcionalidade avançada é fornecida pela biblioteca auxiliar, que consiste principalmente em macros de pré-processador que auxiliam em operações de tabelas complexas.
+A API Lua C é baseada em pilha. Lua fornece funções para fazer push e pop da maioria dos tipos de dados C simples (inteiros, floats, etc.) de e para a pilha, bem como funções para manipular tabelas através da pilha. O agrupamento de dados entre funções C e Lua também é feito usando a pilha. Para chamar uma função Lua, argumentos são colocados na pilha e, em seguida, lua_call é usado para chamar a função real. Ao escrever uma função C para ser chamada diretamente de Lua, os argumentos são lidos da pilha.
 
 ### Criação
 Lua foi criada em 1993 por Roberto Ierusalimschy, Luiz Henrique de Figueiredo e Waldemar Celes, membros do Grupo de Tecnologia em Computação Gráfica (Tecgraf) da Pontifícia Universidade Católica do Rio de Janeiro, no Brasil.
-
 De 1977 a 1992, o Brasil teve uma política de fortes barreiras comerciais (chamada de reserva de mercado) para hardware e software de computador. Nesse ambiente, os clientes do Tecgraf não tinham condições, nem política nem financeira, de comprar softwares customizados do exterior. Esses motivos levaram o Tecgraf a implementar do zero as ferramentas básicas necessárias.
-
 Os predecessores de Lua foram as linguagens de descrição/configuração de dados SOL (Simple Object Language) e DEL (linguagem de entrada de dados). Eles foram desenvolvidos independentemente no Tecgraf em 1992-1993 para adicionar alguma flexibilidade em dois projetos diferentes (ambos eram programas gráficos interativos para aplicações de engenharia na empresa Petrobras). Havia falta de estruturas de controle de fluxo em SOL e DEL, e a Petrobras sentiu uma necessidade crescente de adicionar poder total de programação a elas.
-
 Lua 1.0 foi projetada de tal forma que seus construtores de objetos, sendo então um pouco diferentes do estilo leve e flexível atual, incorporaram a sintaxe de descrição de dados do SOL (daí o nome Lua: Sol significa "Sol" em português, e Lua significa "Lua"). A sintaxe Lua para estruturas de controle foi emprestada principalmente de Modula (if, while, repeat/until), mas também teve influência de CLU (múltiplas atribuições e múltiplos retornos de chamadas de função, como uma alternativa mais simples para parâmetros de referência ou ponteiros explícitos), C++ ("ideia legal de permitir que uma variável local seja declarada apenas onde precisamos"), SNOBOL e AWK (matrizes associativas). Em um artigo publicado no Dr. Dobb's Journal, os criadores de Lua também afirmam que LISP e Scheme com seu mecanismo de estrutura de dados único e onipresente (a lista) foram uma grande influência em sua decisão de desenvolver a tabela como a estrutura de dados primária de Lua.
-
-A semântica Lua tem sido cada vez mais influenciada pelo Scheme ao longo do tempo, especialmente com a introdução de funções anônimas e escopo léxico completo. Vários recursos foram adicionados em novas versões do Lua.
-
 Versões de Lua anteriores à versão 5.0 foram lançadas sob uma licença semelhante à licença BSD. A partir da versão 5.0, Lua foi licenciada sob a Licença MIT. Ambas são licenças de software livre permissivas e são quase idênticas.
 
 ### Aplicações
-No desenvolvimento de videogames, Lua é amplamente utilizada como linguagem de script por programadores, principalmente devido à sua facilidade percebida de embutir, execução rápida e curva de aprendizado curta. Jogos notáveis ​​que usam Lua incluem Roblox, Garry's Mod, Payday 2, Phantasy Star Online 2, Dota 2, Angry Birds Space, Crysis, e muitos outros. Alguns jogos que não suportam nativamente programação ou scripts Lua, têm essa funcionalidade adicionada por mods, como o ComputerCraft faz para o Minecraft. Além disso, Lua também é usada em softwares que não são de videogame, como Adobe Lightroom, Moho, iClone, Aerospike e certos softwares de sistema no FreeBSD e NetBSD, e é usado como uma linguagem de script de modelo no MediaWiki usando a extensão Scribunto.
-
 Em 2003, uma pesquisa realizada pela GameDev.net mostrou que Lua era a linguagem de script mais popular para programação de jogos. Em 12 de janeiro de 2012, Lua foi anunciada como vencedora do Front Line Award 2011 da revista Game Developer na categoria Programming Tools.
-
 Um grande número de aplicativos que não são de jogos também usam Lua para extensibilidade, como LuaTeX, uma implementação da linguagem de configuração de tipos TeX, Redis, um banco de dados de valores-chave, Neovim, um editor de texto, Nginx, um servidor web e Wireshark , um analisador de pacotes de rede.
-
 Através da extensão Scribunto, Lua está disponível como uma linguagem de script do lado do servidor no software MediaWiki que alimenta a Wikipedia e outros wikis. Entre seus usos estão permitir a integração de dados do Wikidata em artigos, e alimentar o sistema automatizado de taxobox.
+No desenvolvimento de videogames, Lua é amplamente utilizada como linguagem de script por programadores, principalmente devido à sua facilidade percebida de embutir, execução rápida e curva de aprendizado curta. Jogos notáveis que usam Lua incluem Roblox, Garry's Mod, Payday 2, Phantasy Star Online 2, Dota 2, Angry Birds Space, Crysis, e muitos outros. Alguns jogos que não suportam nativamente programação ou scripts Lua, têm essa funcionalidade adicionada por mods, como o ComputerCraft faz para o Minecraft. Além disso, Lua também é usada em softwares que não são de videogame, como Adobe Lightroom, Moho, iClone, Aerospike e certos softwares de sistema no FreeBSD e NetBSD, e é usado como uma linguagem de script de modelo no MediaWiki usando a extensão Scribunto.
