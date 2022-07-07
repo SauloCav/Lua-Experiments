@@ -54,11 +54,6 @@ Os programas Lua não são interpretados diretamente do arquivo textual Lua, mas
 
 Como a maioria das CPUs, e ao contrário da maioria das máquinas virtuais (que são baseadas em pilha), a Lua VM é baseada em registradores e, portanto, se assemelha mais a um projeto de hardware real. A arquitetura de registradores evita a cópia excessiva de valores e reduz o número total de instruções por função. A máquina virtual de Lua 5 é uma das primeiras VMs puras baseadas em registro a ter um amplo uso.
 
-### C API
-Lua destina-se a ser incorporada em outros aplicativos e fornece uma API C para essa finalidade. A API é dividida em duas partes: o núcleo Lua e a biblioteca auxiliar Lua. O design da API Lua elimina a necessidade de gerenciamento manual de referências em código C, diferentemente da API do Python. A API, como a linguagem, é minimalista. A funcionalidade avançada é fornecida pela biblioteca auxiliar, que consiste principalmente em macros de pré-processador que auxiliam em operações de tabelas complexas.
-
-A API Lua C é baseada em pilha. Lua fornece funções para fazer push e pop da maioria dos tipos de dados C simples (inteiros, floats, etc.) de e para a pilha, bem como funções para manipular tabelas através da pilha. O agrupamento de dados entre funções C e Lua também é feito usando a pilha. Para chamar uma função Lua, argumentos são colocados na pilha e, em seguida, lua_call é usado para chamar a função real. Ao escrever uma função C para ser chamada diretamente de Lua, os argumentos são lidos da pilha.
-
 ### Criação
 Lua foi criada em 1993 por Roberto Ierusalimschy, Luiz Henrique de Figueiredo e Waldemar Celes, membros do Grupo de Tecnologia em Computação Gráfica (Tecgraf) da Pontifícia Universidade Católica do Rio de Janeiro, no Brasil.
 
