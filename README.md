@@ -38,8 +38,6 @@ Lua é uma linguagem com escopo léxico. O escopo das variáveis começa no prim
 Note que, em uma declaração como local x = x, o novo x sendo declarado não está no escopo ainda e portanto o segundo x se refere a uma variável externa.
 Por causa das regras de escopo léxico, variáveis locais podem ser livremente acessadas por funções definidas dentro do seu escopo. Uma variável local usada por uma função mais interna é chamada de upvalue ou variável local externa, dentro da função mais interna. Note que cada execução de um comando local define novas variáveis locais.
 
-Laços criam dez fechos (isto é, dez instâncias da função anônima). Cada um destes fechos usa uma variável y diferente, enquanto todos eles compartilham a mesma variável x.
-
 
 ## Tratamentos Semânticos
 Uma característica essencial de Lua é a semântica Extensível, e o conceito de “metatables” permite que as tabelas Lua sejam personalizadas em poderosas e exclusivas formas. O exemplo a seguir mostra uma tabela “infinita”. Para qualquer valor “n”, “fibs [n]” dará o enésimo número Fibonacci usando programação dinâmica.
