@@ -40,7 +40,7 @@ Por causa das regras de escopo léxico, variáveis locais podem ser livremente a
 
 
 ## Tratamentos Semânticos
-Uma característica essencial de Lua é a semântica Extensível, e o conceito de “metatables” permite que as tabelas Lua sejam personalizadas em poderosas e exclusivas formas. O exemplo a seguir mostra uma tabela “infinita”. Para qualquer valor “n”, “fibs [n]” dará o enésimo número Fibonacci usando programação dinâmica.
+Uma característica essencial de Lua é a semântica Extensível, e o conceito de “metatables” permite que as tabelas Lua sejam personalizadas em poderosas e exclusivas formas.
 
 Lua é ma linguagem de computador que permite ao usuário ampliar ou modificar sua sintaxe e semântica. No sentido mais estrito, o termo diz respeito a apenas algumas das linguagens realmente utilizadas, como a Forth, que permitem ao programador modificar a própria linguagem.
 
@@ -58,8 +58,6 @@ Lua foi criada em 1993 por Roberto Ierusalimschy, Luiz Henrique de Figueiredo e 
 De 1977 a 1992, o Brasil teve uma política de fortes barreiras comerciais (chamada de reserva de mercado) para hardware e software de computador. Nesse ambiente, os clientes do Tecgraf não tinham condições, nem política nem financeira, de comprar softwares customizados do exterior. Esses motivos levaram o Tecgraf a implementar do zero as ferramentas básicas necessárias.
 
 Os predecessores de Lua foram as linguagens de descrição/configuração de dados SOL (Simple Object Language) e DEL (linguagem de entrada de dados). Eles foram desenvolvidos independentemente no Tecgraf em 1992-1993 para adicionar alguma flexibilidade em dois projetos diferentes (ambos eram programas gráficos interativos para aplicações de engenharia na empresa Petrobras). Havia falta de estruturas de controle de fluxo em SOL e DEL, e a Petrobras sentiu uma necessidade crescente de adicionar poder total de programação a elas.
-
-Lua 1.0 foi projetada de tal forma que seus construtores de objetos, sendo então um pouco diferentes do estilo leve e flexível atual, incorporaram a sintaxe de descrição de dados do SOL (daí o nome Lua: Sol significa "Sol" em português, e Lua significa "Lua"). A sintaxe Lua para estruturas de controle foi emprestada principalmente de Modula (if, while, repeat/until), mas também teve influência de CLU (múltiplas atribuições e múltiplos retornos de chamadas de função, como uma alternativa mais simples para parâmetros de referência ou ponteiros explícitos), C++ ("ideia legal de permitir que uma variável local seja declarada apenas onde precisamos"), SNOBOL e AWK (matrizes associativas). Em um artigo publicado no Dr. Dobb's Journal, os criadores de Lua também afirmam que LISP e Scheme com seu mecanismo de estrutura de dados único e onipresente (a lista) foram uma grande influência em sua decisão de desenvolver a tabela como a estrutura de dados primária de Lua.
 
 Versões de Lua anteriores à versão 5.0 foram lançadas sob uma licença semelhante à licença BSD. A partir da versão 5.0, Lua foi licenciada sob a Licença MIT. Ambas são licenças de software livre permissivas e são quase idênticas.
 
