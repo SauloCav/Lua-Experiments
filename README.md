@@ -1,24 +1,25 @@
 # Lua Experiments
 
-Lua é uma linguagem de programação interpretada, de script em alto nível, com tipagem dinâmica e multiparadigma, reflexiva e leve, projetada por Tecgraf da PUC-Rio em 1993 para expandir aplicações em geral, de forma extensível (que une partes de um programa feitas em mais de uma linguagem), para prototipagem e para ser embarcada em softwares complexos, como jogos. Assemelha-se com Python, Ruby e Icon, entre outras.
+Lua is an interpreted, high-level scripting, dynamically typed, multi-paradigm, reflexive and lightweight programming language, designed by Tecgraf from PUC-Rio in 1993 to expand applications in general, in an extensible way (which unites parts of a program made in more than one language), for prototyping and to be embedded in complex software such as games. It resembles Python, Ruby, and Icon, among others.
 
-Lua foi criada por um time de desenvolvedores do Tecgraf da PUC-Rio, a princípio, para ser usada em um projeto da Petrobras. Devido à sua eficiência, clareza e facilidade de aprendizado, passou a ser usada em diversos ramos da programação, como no desenvolvimento de jogos (a Blizzard Entertainment, por exemplo, usou a linguagem no jogo World of Warcraft), controle de robôs, processamento de texto, etc. Também é frequentemente usada como uma linguagem de propósito geral.
+Lua was created by a team of Tecgraf developers from PUC-Rio, initially, to be used in a Petrobras project. Due to its efficiency, clarity and ease of learning, it began to be used in several branches of programming, such as game development (Blizzard Entertainment, for example, used the language in the game World of Warcraft), robot control, text, etc. It is also often used as a general-purpose language.
 
-Lua combina programação procedural com poderosas construções para descrição de dados, baseadas em tabelas associativas e semântica extensível. É tipada dinamicamente, interpretada a partir de bytecodes, e tem gerenciamento automático de memória com coleta de lixo. Essas características fazem de Lua uma linguagem ideal para configuração, automação (scripting) e prototipagem rápida.
-
-
-## História
-Lua foi criada em 1993 por Roberto Ierusalimschy, Luiz Henrique de Figueiredo e Waldemar Celes, membros do Computer Graphics Technology Group na PUC-Rio, a Pontifícia Universidade Católica do Rio de Janeiro, no Brasil. Versões de Lua antes da versão 5.0 foram liberadas sob uma licença similar à licença BSD. A partir da versão 5.0, Lua foi licenciada sob a licença MIT.
-
-Alguns de seus parentes mais próximos são o Icon, por sua concepção, e Python, por sua facilidade de utilização por não programadores. Em um artigo publicado no Dr. Dobb's Journal, os criadores de Lua também afirmam que Lisp e Scheme foram uma grande influência na decisão de desenvolver a tabela como a principal estrutura de dados de Lua. Lua tem sido usada em várias aplicações, tanto comerciais como não comerciais.
-
-O primeiro projeto utilizando a linguagem em jogos foi em 1997 quando a LucasArts a utilizou como linguagem de script no jogo Grim Fandango. Em 2008 nasceu uma das engines mais famosas de Lua (Corona SDK). Em 2009 nasceu o Love2D, uma engine para jogos 2d
+Lua combines procedural programming with powerful data description constructs based on associative tables and extensible semantics. It is dynamically typed, interpreted from bytecodes, and has automatic memory management with garbage collection. These characteristics make Lua an ideal language for configuration, automation (scripting) and rapid prototyping.
 
 
-## Paradigma
-Lua é normalmente descrita como uma linguagem de múltiplos paradigmas, oferecendo um pequeno conjunto de características gerais que podem ser estendidas para encaixar diferentes tipos de problemas, em vez de fornecer uma especificação mais complexa e rígida para combinar com um único paradigma. Lua, por exemplo, não contém apoio explícito à herança, mas permite que ela seja executada com relativa facilidade com metatables.
+## History
 
-Do mesmo modo, Lua permite que programadores quando implementam nomes, classes, e outras funções, empreguem poderosas técnicas de programação funcional e completos escopos lexicais. <br/>
+Lua was created in 1993 by Roberto Ierusalimschy, Luiz Henrique de Figueiredo and Waldemar Celes, members of the Computer Graphics Technology Group at PUC-Rio, the Pontifical Catholic University of Rio de Janeiro, Brazil. Lua versions prior to version 5.0 were released under a license similar to the BSD license. As of version 5.0, Lua has been licensed under the MIT license.
+
+Some of its closest relatives are Icon, for its design, and Python, for its ease of use by non-programmers. In an article published in Dr. Dobb's Journal, the creators of Lua also claim that Lisp and Scheme were a big influence in the decision to develop the table as Lua's main data structure. Lua has been used in many applications, both commercial and non-commercial.
+
+The first project using the language in games was in 1997 when LucasArts used it as a scripting language in the game Grim Fandango. In 2008, one of Lua's most famous engines was born (Corona SDK). In 2009 Love2D was born, an engine for 2d games.
+
+
+## Paradigm
+Lua is typically described as a multi-paradigm language, offering a small set of general features that can be extended to fit different types of problems, rather than providing a more complex and rigid specification to match a single paradigm. Lua, for example, does not contain explicit inheritance support, but allows it to be performed relatively easily with metatables.
+
+Likewise, Lua allows programmers when implementing names, classes, and other functions to employ powerful functional programming techniques and full lexical scopes.
 
 
 ## Tipagem
