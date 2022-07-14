@@ -2,8 +2,6 @@
 
 Lua is an interpreted, high-level scripting, dynamically typed, multi-paradigm, reflexive and lightweight programming language, designed by Tecgraf from PUC-Rio in 1993 to expand applications in general, in an extensible way (which unites parts of a program made in more than one language), for prototyping and to be embedded in complex software such as games. It resembles Python, Ruby, and Icon, among others.
 
-Lua was created by a team of Tecgraf developers from PUC-Rio, initially, to be used in a Petrobras project. Due to its efficiency, clarity and ease of learning, it began to be used in several branches of programming, such as game development (Blizzard Entertainment, for example, used the language in the game World of Warcraft), robot control, text, etc. It is also often used as a general-purpose language.
-
 Lua combines procedural programming with powerful data description constructs based on associative tables and extensible semantics. It is dynamically typed, interpreted from bytecodes, and has automatic memory management with garbage collection. These characteristics make Lua an ideal language for configuration, automation (scripting) and rapid prototyping.
 
 
@@ -64,8 +62,6 @@ Lua was created in 1993 by Roberto Ierusalimschy, Luiz Henrique de Figueiredo an
 From 1977 to 1992, Brazil had a policy of strong trade barriers (called market reserve) for computer hardware and software. In this environment, Tecgraf's customers were not in a position, either politically or financially, to buy customized software from abroad. These reasons led Tecgraf to implement the necessary basic tools from scratch.
 
 Lua's predecessors were the SOL (Simple Object Language) and DEL (Data Entry Language) data description/configuration languages. They were independently developed at Tecgraf in 1992-1993 to add some flexibility in two different projects (both were interactive graphics programs for engineering applications at Petrobras). There was a lack of flow control structures in SOL and DEL, and Petrobras felt a growing need to add full programming power to them.
-
-Versions of Lua prior to version 5.0 were released under a license similar to the BSD license. As of version 5.0, Lua has been licensed under the MIT License. Both are permissive free software licenses and are almost identical.
 
 
 ### Applications
