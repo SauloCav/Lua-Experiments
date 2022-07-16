@@ -29,9 +29,6 @@ There are eight basic types in Lua: nil, boolean, number, string, function, user
 
 The userdata type allows arbitrary C data to be stored in Lua variables. This type corresponds to a block of memory and has no predefined operations in Lua, except assignment and identity testing. However, through the use of metatables, the programmer can define operations for userdata values. Userdata values cannot be created or modified in Lua, only through the C API. This guarantees the integrity of data belonging to the host program. The thread type represents independent streams of execution and is used to implement coroutines. Don't confuse Lua's thread type with lightweight operating system processes. Lua supports coroutines on all systems, even those that don't support lightweight processes.
 
-The table type implements associative arrays, that is, arrays that can be indexed not just by numbers, but by any value (except nil). Tables can be heterogeneous; that is, they can contain values of all types (except nil). Tables are the only data structuring mechanism in Lua; they can be used to represent common arrays, symbol tables, sets, records, graphs, trees, etc. To represent records, Lua uses the field name as an index.
-Values of type table, function, thread and userdata (complete) are objects: variables do not actually contain these values, only references to them. Assignment, parameter passing, and function return always deal with references to such values; these operations do not imply any kind of copying. The type function returns a string describing the type of a given value.
-
 
 ## Scope
 
@@ -52,7 +49,7 @@ Lua is a computer language that allows the user to extend or modify its syntax a
 
 Lua programs are not interpreted directly from the Lua textual file, but are compiled into bytecode, which is then executed in the Lua virtual machine. The compilation process is normally invisible to the user and runs during runtime, especially when a JIT compiler is used, but it can be done offline to increase load performance or reduce the memory consumption of the host environment. out the compiler. Lua bytecode can also be produced and executed from Lua, using the string library's dump function and the load/loadstring/loadfile functions. Lua version 5.3.4 is implemented in approximately 24,000 lines of C code.
 
-Like most CPUs, and unlike most virtual machines (which are stack-based), Lua VM is register-based and therefore more closely resembles a real hardware design. The register architecture avoids excessive copying of values ​​and reduces the total number of instructions per function. The Lua 5 virtual machine is one of the first pure registry-based VMs to see widespread use.
+Like most CPUs, and unlike most virtual machines (which are stack-based), Lua VM is register-based and therefore more closely resembles a real hardware design. The register architecture avoids excessive copying of values and reduces the total number of instructions per function. The Lua 5 virtual machine is one of the first pure registry-based VMs to see widespread use.
 
 
 ### Creation
@@ -68,8 +65,6 @@ Lua's predecessors were the SOL (Simple Object Language) and DEL (Data Entry Lan
 
 In 2003, a survey conducted by GameDev.net showed that Lua was the most popular scripting language for game programming. On January 12, 2012, Lua was announced as the winner of Game Developer Magazine's 2011 Front Line Award in the Programming Tools category.
 
+In video game development, Lua is widely used as a scripting language by programmers, mainly due to its perceived ease of embedding, fast execution, and short learning curve. Notable games that use Lua include Roblox, Garry's Mod, Payday 2, Phantasy Star Online 2, Dota 2, Angry Birds Space, Crysis, and many others. Some games that don't natively support Lua programming or scripts, have this functionality added by mods, like ComputerCraft does for Minecraft. In addition, Lua is also used in non-video game software such as Adobe Lightroom, Moho, iClone, Aerospike, and certain system software on FreeBSD and NetBSD, and is used as a template scripting language in MediaWiki using the Scribunto extension.
+
 A large number of non-gaming applications also use Lua for extensibility, such as LuaTeX, an implementation of the TeX type configuration language, Redis, a key-value database, Neovim, a text editor, Nginx, a web server and Wireshark, a network packet analyzer.
-
-Through the Scribunto extension, Lua is available as a server-side scripting language in the MediaWiki software that powers Wikipedia and other wikis. Among its uses are enabling the integration of Wikidata data into articles, and powering the automated taxobox system.
-
-In video game development, Lua is widely used as a scripting language by programmers, mainly due to its perceived ease of embedding, fast execution, and short learning curve. Notable games that use Lua include Roblox, Garry's Mod, Payday 2, Phantasy Star Online 2, Dota 2, Angry Birds Space, Crysis, and many others. Some games that don't natively support Lua programming or scripts, have this functionality added by mods, like ComputerCraft does for Minecraft. In addition, Lua is also used in non-video game software such as Adobe Lightroom, Moho, iClone, Aerospike, and certain system software on FreeBSD and NetBSD, and is used as a template scripting language in MediaWiki using the Scribunto extension. .
